@@ -7,9 +7,11 @@ const ChatBotPage = () => {
 
   // Click Submit on "Enter" button
   function keyboardSubmit(event: { keyCode: any; }) {
-    var x = event.keyCode;
-    if (x == 13) {  // 13 is the return key
-      // document.getElementById("submit").click();
+    var x = event.keyCode
+    if (x === 13) {  // 13 is the return key
+        const submit = document.getElementById("submit")
+        if(submit === null) return
+        submit.click()
     }
   }
 
@@ -17,13 +19,12 @@ const ChatBotPage = () => {
  ////// INITIALIZE /////
 ///////////////////////
 
-var previous_user_input = document.getElementById("previous_user_input");
+// var previous_user_input = document.getElementById("previous_user_input");
 // var previous_user_string = previous_user_input.innerHTML;
 // var user_string = $("#user_string").val();
 
-var unknown = "I don't understand";
-var responded = false;
-var jaccard_threshold = 0.45;
+var unknown = "I don't understand"
+var responded = false
 
 
   //////////////////
@@ -41,7 +42,7 @@ function Submit() {
 	// }
 	
 	//Enable voting and responses
-	responded = true;
+	responded = true
 	// previous_user_input.innerHTML = user_string;
 
 	//Convert user string to set
@@ -97,12 +98,14 @@ function Submit() {
 function AddResponse() {
 
 	//obtain html variables
+    const us = document.getElementById("user_string")
+    if(us === null) return
 	// var user_string = $("#user_string").val();
 	// var previous_user_string = previous_user_input.innerHTML;
 	
 	//checks and prevents spam
 	// if((responded == false) || (user_string == "")) return;
-	responded = false;
+	responded = false
 
 	//Tolkenizes the user string
 	// var tolkens = Tolkenize(previous_user_string);
@@ -125,13 +128,16 @@ function AddResponse() {
 
 //Increases the rating for responses
 function UpVote() {
+    const previous_user_input = document.getElementById("previous_user_input")
+    const response = document.getElementById("response")
+    if(previous_user_input === null || response === null) return
 
 	//obtain html variables
-	// var previous_user_string = previous_user_input.innerHTML;
-	// var response2 = response.innerHTML;
+	var previous_user_string = previous_user_input.innerHTML
+	var ai_response = response.innerHTML
 
 	//Omit unknown response
-	// if((response2 == unknown) || (response2 == "")|| (response2 == "<br>\n            ")) return;
+	if((ai_response === unknown) || (ai_response === "<br>\n            ")) return
 
 	//updates the db
 	// $.post("../chatbot/upvote.php", {previous_user_string: previous_user_string, response2: response2},
@@ -145,13 +151,16 @@ function UpVote() {
 
 //Decreases the rating for responses
 function DownVote() {
+    const previous_user_input = document.getElementById("previous_user_input")
+    const response = document.getElementById("response")
+    if(previous_user_input === null || response === null) return
 
 	//obtain html variables
-	// var previous_user_string = previous_user_input.innerHTML;
-	// var response2 = response.innerHTML;
+	var previous_user_string = previous_user_input.innerHTML
+	var ai_response = response.innerHTML
 
 	//Omit unknown response
-	// if((response2 == unknown) || (response2 == "<br>\n            ")) return;
+	if((ai_response === unknown) || (ai_response === "<br>\n            ")) return
 
 	//updates the db
 	// $.post("../chatbot/downvote.php", {previous_user_string: previous_user_string, response2: response2},
@@ -170,85 +179,71 @@ function DownVote() {
 
 //Jaccard Similarity
 function Jaccard(set1: string[], set2: string[]) {
-	// let intersect = new Set([...set1].filter(i => set2.has(i)));
-	let union = new Set([...set1, ...set2]);
-	// return intersect.size / union.size;
+    const intersect = new Set(set1.filter(value => set2.includes(value)))
+	const union = new Set([...set1, ...set2])
+	return intersect.size / union.size
 }
 
 //Tolkenize input into string array
 function Tolkenize(str: string){
 
-	//configure string for splitting
-	str = str.replace('?',' ?');
-	str = str.replace('!',' !');
-	str = str.replace(',',' ');
-	str = str.replace('.',' ');
-	str = str.replace('\'re',' are');
-	str = str.replace('\'ll',' will');
-	str = str.replace('\'d',' would');
-	str = str.replace('\'s',' is');
-	str = str.replace('\'m',' am');
-	str = str.toLowerCase();
+	//Parse string and split
+	let str_arr = str.toLowerCase().replace('?',' ?').replace('!',' !').replace(',',' ').replace('.',' ').replace('\'re',' are').replace('\'ll',' will').replace('\'d',' would').replace('\'s',' is').replace('\'m',' am').split(" ")
 
-	//Splits string into tokens
-	let str2 = str.split(" ");
-
-	//Remove empty elements
-	for(var i=0; i<str2.length; i++){
-		if (str2[i] == "") {
-			str2.splice(i,1);
-			--i;
+    //Remove empty elements
+	for(var i = 0; i < str_arr.length; i++){
+		if (str_arr[i] === "") {
+			str_arr.splice(i,1)
+			--i
 		}
 	}
-	return str2;
+	return str_arr
 }
 
 //Converts string array into string set
 function toSet(str_arr: string[]){
-	var str_set = new Set(str_arr);
-	return str_set;
+	var str_set = new Set(str_arr)
+	return str_set
 }
 
 //converts db entries into and array of sets 
 function dbToSet(db_arr: string[]){
-	var db_set = [];
+	var db_set = []
 	for (var i = 0; i < db_arr.length; i++){
-		var a = db_arr[i].split(" ");
-		var b = new Set(a);
-		db_set.push(new Set(a));
+		var a = db_arr[i].split(" ")
+		var b = new Set(a)
+		db_set.push(new Set(a))
 	}
-	return db_set;
+	return db_set
 }
 
 //Returns the indexs with Jaccard value greater than threshold
-function JaccardThreshold(str_set: string[], db_set: string[], threshold=0.50){
-	var threshold_index = [];
+function JaccardThreshold(str_set: string[], db_set: string[][], threshold: number = 0.50){
+	var threshold_index = []
 
 	//run Jaccard and record index of threshold values
 	for(var j = 0; j < db_set.length; j++){
-		// if(Jaccard(str_set, db_set[j]) >= threshold){
-		// threshold_index.push(j);
-		// }
+		if(Jaccard(str_set, db_set[j]) >= threshold) threshold_index.push(j)
 	}
-	// return threshold_index;
+	return threshold_index
 }
 
 //Algorithm for picking similar strings based 
 //on random numbers and rank.
-function ratingPick(choices: string | any[]){
+function ratingPick(choices: string []| any[]){
 	
-	//Returns responses with only one choice.
-	if(choices.length == 0) return null;
+	//Nothing to choose from
+	if(choices.length === 0) return null
 
 	//Returns responses with only one choice.
-	if(choices.length == 1) return choices[0]["response"];
+	if(choices.length === 1) return choices[0]["response"]
 
 	//Variables used in calculation
-	var my_data: never[] = [];
-	var cur_rank = 0;
-	var max_rank = 0;
-	var min = 9999999;
-	var choice;
+	var my_data: never[] = []
+	var cur_rank = 0
+	var max_rank = 0
+	var min = 9999999
+	var choice
 
 	//obtain the minimum rating, parse the ratings
 	//into Int and add them to my_data.
@@ -260,17 +255,15 @@ function ratingPick(choices: string | any[]){
 	// }
 
 	//Determines the algorithm for normalizing the data
-	var negative = false;
+	var negative = false
 	if(min <= 1){
-		negative = true;
+		negative = true
 	}
 		
 	//Determines the difference value
-	if(negative == false){
-		var difference = min - 1;
-	}
-	if(negative == true){
-		var difference = -Math.abs(min - 1);	
+  let difference =  min - 1
+	if(negative === true){
+		difference = -Math.abs(min - 1)
 	}
 
 	// for(x in my_data){
@@ -282,7 +275,7 @@ function ratingPick(choices: string | any[]){
 	// }
 
 	//Generate our random number
-	const rand = Math.random();
+	const rand = Math.random()
 
 	//run probability algorithm
 	// for(x in my_data){
@@ -299,45 +292,39 @@ function ratingPick(choices: string | any[]){
 }
 
     return (
-      <main>
-        <br/>
-        <h1>This is the UVic AI Club Chatbot</h1>
-        <br/>
-        <br/>
-        <div className="chatbot">
+        <main>
+            <br/>
+            <h1>This is the UVic AI Club Chatbot</h1>
+            <br/>
+            <br/>
+            <div className="chatbot">
 
-              You:
-              <div id="previous_user_input"><br/>
-              </div>
+                You:
+                <div id="previous_user_input"><br/>
+                </div>
 
-              <br/>
-              <br/>
+                <br/>
+                <br/>
 
-              Chatbot:
-              <div id="response"><br/>
-              </div>
+                Chatbot:
+                <div id="response"><br/>
+                </div>
 
-              <br/>
-              <br/>
+                <br/>
+                <br/>
 
-              <form id="chat" method="post">
-                <input name="user_string" id="user_string" type="text" onKeyDown={keyboardSubmit}/><br/>
-                <input type="button" id="thumb_up" className="thumb_up" onClick={UpVote}/>
-                <input type="button" id="submit" onClick={Submit} value="Submit"/>
-                <input type="button" id="addResponse=" onClick={AddResponse} value="Add Response"/>
-                <input type="button" id="thumb_down" className="thumb_down" onClick={DownVote}/>
+                <form id="chat" method="post">
+                    <input name="user_string" id="user_string" type="text" onKeyDown={keyboardSubmit}/><br/>
+                    <input type="button" id="thumb_up" className="thumb_up" onClick={UpVote}/>
+                    <input type="button" id="submit" onClick={Submit} value="Submit"/>
+                    <input type="button" id="addResponse=" onClick={AddResponse} value="Add Response"/>
+                    <input type="button" id="thumb_down" className="thumb_down" onClick={DownVote}/>
+                </form>
 
-                {/* <input name="user_string" id="user_string" type="text" onKeyDown="keyboardSubmit(event)"/><br/>
-                <input type="button" id="thumb_up" className="thumb_up" onClick="UpVote()"/>
-                <input type="button" id="submit" onClick="Submit()" value="Submit"/>
-                <input type="button" id="addResponse=" onClick="AddResponse()" value="Add Response"/>
-                <input type="button" id="thumb_down" className="thumb_down" onClick="DownVote()"/> */}
-
-              </form>
-              <br/>
+                <br/>
             </div>
-        <br/>
-      </main>
+            <br/>
+        </main>
     );
 }
 
