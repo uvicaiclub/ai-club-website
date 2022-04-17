@@ -16,13 +16,13 @@ const ResourcePage = () => {
         This fellow is a little vulgar, however he is also very good at explaining problems and solutions.</p>
         <br/>
         <h2>Books</h2>
-        <p><a target="_blank" href="../resources/Artificial Intelligence A Modern Approach.pdf">Artificial Intelligence: A Modern Approach</a></p>
-        <p><a target="_blank" href="../resources/Mining of Massive Datasets.pdf">Mining of Massive Datasets</a></p>
+        <p><a target="_blank" href="./resources/Artificial Intelligence A Modern Approach.pdf">Artificial Intelligence: A Modern Approach</a></p>
+        <p><a target="_blank" href="./resources/Mining of Massive Datasets.pdf">Mining of Massive Datasets</a></p>
         <br/>
         <h2>Papers</h2>
-        <p><a target="_blank" href="../resources/Progressive Growing of Gans of Gans for Improved Quality, Stability, and Variation.pdf">Progressive Growing of Gans of Gans for Improved Quality, Stability, and Variation</a></p>
-        <p><a target="_blank" href="../resources/UNSUPERVISED REPRESENTATION LEARNING WITH DEEP CONVOLUTIONAL GENERATIVE ADVERSARIAL NETWORKS.pdf">Unsupervised Representation Learning With Deep Convolutional Generative Adversarial Networks</a></p>
-        <p><a target="_blank" href="../resources/Using Neural Networks For Evaluation in Heuristic Search Algorithm.pdf">Using Neural Networks for Evaluation in Heuristic Search Algorithms</a></p>
+        <p><a target="_blank" href="./resources/Progressive Growing of Gans for Improved Quality, Stability, and Variation.pdf">Progressive Growing of Gans of Gans for Improved Quality, Stability, and Variation</a></p>
+        <p><a target="_blank" href="./resources/UNSUPERVISED REPRESENTATION LEARNING WITH DEEP CONVOLUTIONAL GENERATIVE ADVERSARIAL NETWORKS.pdf">Unsupervised Representation Learning With Deep Convolutional Generative Adversarial Networks</a></p>
+        <p><a target="_blank" href="./resources/Using Neural Networks For Evaluation in Heuristic Search Algorithm.pdf">Using Neural Networks for Evaluation in Heuristic Search Algorithms</a></p>
       </main>
     );
 }
