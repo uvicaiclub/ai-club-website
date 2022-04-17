@@ -1,9 +1,9 @@
 import { PartialTheme, Stack } from '@fluentui/react';
 import "../styles/style.css"
+import { Link } from "react-router-dom"
 
 interface HeaderProps {
     forceRefreshToggle?: () => void;
-    // setTheme?: (theme: PartialTheme) => void; 
 }
 
 
@@ -16,12 +16,11 @@ const Header = (props: HeaderProps) => {
             <div className="link_bar">
                 <nav>
                     <ul>
-                        <li><a href="index.html">home</a></li>
-                        <li><a href="/content/about.html">about</a></li>
-                        <li><a href="/content/projects.html">projects</a></li>
-                        <li><a href="/content/resources.html">resources</a></li>
-                        <li><a href="/content/chatbot.html">Chatbot</a></li>
-                        <li><a href="/content/contact.html">contact</a></li>
+                        <li><Link to="/">Home </Link></li>
+                        <li><Link to="/about">About </Link></li>
+                        <li><Link to="/contact">Contact </Link></li>
+                        <li><Link to="/projects">Projects </Link></li>
+                        <li><Link to="/resource">Resources </Link></li>
                     </ul>
                 </nav>
             </div>
