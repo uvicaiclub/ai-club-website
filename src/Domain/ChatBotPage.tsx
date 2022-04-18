@@ -223,16 +223,12 @@ const ChatBotPage = () => {
         // }
 
         //Determines the algorithm for normalizing the data
-        var negative = false
-        if(min <= 1){
-            negative = true
-        }
+        let negative = false
+        if(min <= 1) negative = true
             
         //Determines the difference value
-    let difference =  min - 1
-        if(negative === true){
-            difference = -Math.abs(min - 1)
-        }
+        let difference =  min - 1
+        if(negative === true) difference = -Math.abs(min - 1)
 
         // for(x in my_data){
         // 	//Modify data with difference
