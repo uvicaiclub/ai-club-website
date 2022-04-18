@@ -1,4 +1,5 @@
 import { useState } from "react";
+import * as jQuery from 'jquery';
 
 const ChatBotPage = () => {
 
@@ -45,6 +46,30 @@ const ChatBotPage = () => {
 
         //Convert user string to set
         let user_set = toSet(Tokenize(userInput.toLowerCase()))
+
+        let foo = ""
+        console.log("HERE1")
+        jQuery.ajax({
+            type: "POST",
+            url: './src/test.php',
+            dataType: 'json',
+            data: {functionname: 'add', arguments: [1, 2]},
+        
+            success: function (obj, textstatus) {
+                
+                console.log("HERE2")
+
+                if( !('error' in obj) ) {
+                    console.log("HERE3")
+                    foo = obj.result;
+                }
+                else {
+                    console.log(obj.error);
+                    console.log("HERE4")
+
+                }
+            }
+        });
 
         //Queries the entire database
         //TODO: test/test.php needs a real name and local directory
@@ -95,7 +120,7 @@ const ChatBotPage = () => {
     function AddResponse() {
 
         //checks and prevents spam
-        if((responded == false) || (userInput == "")) return;
+        if((responded === false) || (userInput === "")) return;
         setResponded(false)
 
         //Tokenizes the user string
@@ -123,7 +148,7 @@ const ChatBotPage = () => {
         if((response === unknown) || (response === "<br>\n            ")) return
 
         //updates the db
-        // $.post("../chatbot/upvote.php", {previous_user_string: previous_user_string, response2: response2},
+        // $.post("../chatbot/upvote.php", {previous_user_string: previous_user_string, response: response},
         // function(data) {
 
         // 	//prevents spamming
