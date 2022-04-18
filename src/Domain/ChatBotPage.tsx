@@ -51,22 +51,35 @@ const ChatBotPage = () => {
         console.log("HERE1")
         jQuery.ajax({
             type: "POST",
+<<<<<<< HEAD
             url: './src/test.php',
+=======
+            url: './index.php',
+>>>>>>> 6183f1663518f082bcb73d3ad6dea279f081dd26
             dataType: 'json',
             data: {functionname: 'add', arguments: [1, 2]},
         
             success: function (obj, textstatus) {
                 
+<<<<<<< HEAD
                 console.log("HERE2")
 
                 if( !('error' in obj) ) {
                     console.log("HERE3")
+=======
+                
+                if( !('error' in obj) ) {
+                    console.log("HERE2")
+>>>>>>> 6183f1663518f082bcb73d3ad6dea279f081dd26
                     foo = obj.result;
                 }
                 else {
                     console.log(obj.error);
+<<<<<<< HEAD
                     console.log("HERE4")
 
+=======
+>>>>>>> 6183f1663518f082bcb73d3ad6dea279f081dd26
                 }
             }
         });
