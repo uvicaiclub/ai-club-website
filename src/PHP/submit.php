@@ -1,10 +1,10 @@
 <?php
 
   //Establish database connection
-  $db = mysqli_connect('localhost','debrah','','chatbot') or die('Error connecting to MySQL server.');
+  $db = mysqli_connect('localhost','root','','ai_club') or die('Error connecting to MySQL server.');
 
   //Query string 
-  $query = "SELECT * FROM user_strings";  
+  $query = "SELECT * FROM chatbot";  
 
   //Query request
   mysqli_query($db, $query) or die('Error querying database.');

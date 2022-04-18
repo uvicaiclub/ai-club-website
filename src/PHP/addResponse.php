@@ -4,11 +4,11 @@
   $previousUserInput = $_POST['previousUserInput'];
 
   //Establish database connection
-  $db = mysqli_connect('localhost','debrah','','chatbot')
+  $db = mysqli_connect('localhost','root','','ai_club')
   or die('Error connecting to MySQL server.');
 
     //Querey db first
-  $query = "SELECT rating FROM user_strings WHERE userInput=\"".$previousUserInput."\" AND response=\"".$userInput."\";" ; 
+  $query = "SELECT rating FROM chatbot WHERE user_input=\"".$previousUserInput."\" AND response=\"".$userInput."\";" ; 
 
   //Query request
   mysqli_query($db, $query) or die('Error querying database.');
@@ -23,7 +23,7 @@
     $new_rating = $row[0] + 1;
 
     //Update String
-    $update = "UPDATE user_strings SET rating=".$new_rating." WHERE userInput=\"". $previousUserInput . "\" AND response=\"" . $userInput ."\";";
+    $update = "UPDATE chatbot SET rating=".$new_rating." WHERE user_input=\"". $previousUserInput . "\" AND response=\"" . $userInput ."\";";
 
     //Update request
     mysqli_query($db, $update) or die('Error querying database.');
@@ -34,7 +34,7 @@
   }
 
   //Insert userInput
-  $insert = "INSERT INTO user_strings(userInput, response, rating) VALUES (\"".$previousUserInput."\", \"".$userInput."\", 1)"; 
+  $insert = "INSERT INTO chatbot(user_input, response, rating) VALUES (\"".$previousUserInput."\", \"".$userInput."\", 1)"; 
   
   //Insert new response into database
   mysqli_query($db, $insert) or die('Error inserting into database.');
