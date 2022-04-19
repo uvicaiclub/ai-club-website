@@ -4,8 +4,7 @@
   $previousUserInput = $_POST['previousUserInput'];
 
   //Establish database connection
-  $db = mysqli_connect('localhost','root','','ai_club')
-  or die('Error connecting to MySQL server.');
+  $db = mysqli_connect('localhost','test2','b&<p%y>5-$g%sB$T','ai_club') or die('Error connecting to MySQL server.');
 
     //Querey db first
   $query = "SELECT rating FROM chatbot WHERE user_input=\"".$previousUserInput."\" AND response=\"".$userInput."\";" ; 

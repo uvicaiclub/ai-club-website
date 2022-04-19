@@ -53,8 +53,7 @@ const ChatBotPage = () => {
 
         //Queries the entire database
         //TODO: test/test.php needs a real name and local directory
-        $.post("http://localhost/src/PHP/submit.php", {},
-        function(data) {
+        $.post("http://localhost/src/PHP/submit.php", {}, function(data) {
 
         	//Retrieves the database
         	let db = JSON.parse(data);
@@ -95,7 +94,7 @@ const ChatBotPage = () => {
 
         	//Reveal voting for response
             const thumbUp = document.getElementById('thumb_up')
-            const thumbDown = document.getElementById('thumb_up')
+            const thumbDown = document.getElementById('thumb_down')
             if(thumbUp) thumbUp.style.visibility = "visible";
             if(thumbDown) thumbDown.style.visibility = "visible";
         })
@@ -107,25 +106,28 @@ const ChatBotPage = () => {
         //checks and prevents spam
         if((responded === false) || (userInput === "")) return;
         setResponded(false)
+        setResponse(userInput)
 
         //Tokenizes the user string
         const tokenArray = Tokenize(previousUserInput).join(" ");
 
         //If the string and response are already in the db, increase
         //the rating. Otherwise, add to database
-        // $.post("../chatbot/addResponse.php", {previous_user_string: tolkens, user_string: user_string},
-        // function(data) {
+        $.post("http://localhost/src/PHP/addResponse.php", {previousUserInput: tokenArray, userInput: userInput}, function(data) {
 
-        // 	//Populate HTML values for user
-        // 	$('#response').html(data); //Send to html
-        // 	$('#chat')[0].reset();
-            
-        // 	//Reveal voting for response
-        const thumbUp = document.getElementById('thumb_up')
-        const thumbDown = document.getElementById('thumb_up')
-        if(thumbUp) thumbUp.style.visibility = "visible";
-        if(thumbDown) thumbDown.style.visibility = "visible";
-        // });
+            //Populate HTML values for user
+            const responseObj = document.getElementById('response')
+            if(responseObj) responseObj.innerHTML = userInput
+
+            // TODO: user input reset on form submission.
+            // 	$('#chat')[0].reset();
+                
+            // 	//Reveal voting for response
+            const thumbUp = document.getElementById('thumb_up')
+            const thumbDown = document.getElementById('thumb_down')
+            if(thumbUp) thumbUp.style.visibility = "visible";
+            if(thumbDown) thumbDown.style.visibility = "visible";
+        });
     }
 
     //Increases the rating for responses
@@ -135,15 +137,14 @@ const ChatBotPage = () => {
         if((response === unknown) || (response === "<br>\n            ")) return
 
         //updates the db
-        // $.post("../chatbot/upvote.php", {previous_user_string: previous_user_string, response: response},
-        // function(data) {
+        $.post("http://localhost/src/PHP/upvote.php", {previousUserInput: previousUserInput, response: response}, function(data) {
 
-        // 	//prevents spamming
-        const thumbUp = document.getElementById('thumb_up')
-        const thumbDown = document.getElementById('thumb_up')
-        if(thumbUp) thumbUp.style.visibility = "hidden";
-        if(thumbDown) thumbDown.style.visibility = "hidden";
-        // });
+            //prevents spamming
+            const thumbUp = document.getElementById('thumb_up')
+            const thumbDown = document.getElementById('thumb_down')
+            if(thumbUp) thumbUp.style.visibility = "hidden";
+            if(thumbDown) thumbDown.style.visibility = "hidden";
+        });
     }
 
     //Decreases the rating for responses
@@ -153,15 +154,14 @@ const ChatBotPage = () => {
         if((response === unknown) || (response === "<br>\n            ")) return
 
         //updates the db
-        // $.post("../chatbot/downvote.php", {previous_user_string: previous_user_string, response2: response2},
-        // function(data) {
+        $.post("http://localhost/src/PHP/downvote.php", {previousUserInput:             previousUserInput, response: response}, function(data) {
 
-        //prevents spamming
-        const thumbUp = document.getElementById('thumb_up')
-        const thumbDown = document.getElementById('thumb_up')
-        if(thumbUp) thumbUp.style.visibility = "hidden";
-        if(thumbDown) thumbDown.style.visibility = "hidden";
-        // });
+            //prevents spamming
+            const thumbUp = document.getElementById('thumb_up')
+            const thumbDown = document.getElementById('thumb_down')
+            if(thumbUp) thumbUp.style.visibility = "hidden";
+            if(thumbDown) thumbDown.style.visibility = "hidden";
+        });
     }
 
 

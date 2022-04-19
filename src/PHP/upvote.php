@@ -4,11 +4,7 @@
   $response = $_POST['response'];
 
   //Establish database connection
-  $server = 'localhost';
-  $username = "root";
-  $password = "";
-  $db_name = 'ai_club';
-  $db = mysqli_connect($server, $username, $password, $db_name) or die('Error connecting to MySQL server.');
+  $db = mysqli_connect('localhost','test2','b&<p%y>5-$g%sB$T','ai_club') or die('Error connecting to MySQL server.');
 
   //Query userInput
   $query = "SELECT rating FROM chatbot WHERE user_input=\"".$previousUserInput."\" AND response=\"".$response."\";" ;
