@@ -1,5 +1,5 @@
 import { useState } from "react";
-import * as jQuery from 'jquery';
+import * as $ from 'jquery';
 
 const ChatBotPage = () => {
 
@@ -24,7 +24,7 @@ const ChatBotPage = () => {
 
     const unknown = "I don't understand"
     const [userInput, setUserInput] = useState("")
-    const [response, setResponse] = useState("")
+    const [response, setResponse] = useState(unknown)
     const [previousUserInput, setPreviousUserInput] = useState("")
     const [responded, setResponded] = useState(false)
     
@@ -39,94 +39,66 @@ const ChatBotPage = () => {
 
         //Do not submit blank responses
         if(userInput === "") return
+
+        // Update the previous user input field
+        const previousUserInputObj = document.getElementById('previous_user_input')
+        if(previousUserInputObj) previousUserInputObj.innerHTML = userInput;
         
         //Enable voting and responses
         setResponded(true)
         setPreviousUserInput(userInput)
 
         //Convert user string to set
-        let user_set = toSet(Tokenize(userInput.toLowerCase()))
-
-        let foo = ""
-        console.log("HERE1")
-        jQuery.ajax({
-            type: "POST",
-<<<<<<< HEAD
-            url: './src/test.php',
-=======
-            url: './index.php',
->>>>>>> 6183f1663518f082bcb73d3ad6dea279f081dd26
-            dataType: 'json',
-            data: {functionname: 'add', arguments: [1, 2]},
-        
-            success: function (obj, textstatus) {
-                
-<<<<<<< HEAD
-                console.log("HERE2")
-
-                if( !('error' in obj) ) {
-                    console.log("HERE3")
-=======
-                
-                if( !('error' in obj) ) {
-                    console.log("HERE2")
->>>>>>> 6183f1663518f082bcb73d3ad6dea279f081dd26
-                    foo = obj.result;
-                }
-                else {
-                    console.log(obj.error);
-<<<<<<< HEAD
-                    console.log("HERE4")
-
-=======
->>>>>>> 6183f1663518f082bcb73d3ad6dea279f081dd26
-                }
-            }
-        });
+        let userInputTokens = Tokenize(userInput.toLowerCase())
 
         //Queries the entire database
         //TODO: test/test.php needs a real name and local directory
-        // $.post("../test/test.php", {},
-        // function(data) {
+        $.post("http://localhost/src/PHP/submit.php", {},
+        function(data) {
 
-        // 	//Retrieves the database
-        // 	var db = JSON.parse(data);
-
-        // 	//Convert strings to one large set (not very efficient)
-        // 	var strings = [];
-        // 	for(i in db){
-        // 		strings[i] = db[i]["string"];
-        // 	}
+        	//Retrieves the database
+        	let db = JSON.parse(data);
             
-        // 	//Converts array of strings to array of sets
-        // 	var db_sets = dbToSet(strings)
+        	//Convert strings to one large set (not very efficient)
+        	let dbInputTokens: any[] = [];
+            db.forEach((element: any) => {
+                dbInputTokens.push(element["user_input"])
+            });
                     
-        // 	//Returns an array of threshold jaccard values (currently highest match).
-        // 	for(var i=100; i>0; i--){
-        // 		var thresh_i = JaccardThreshold(user_set, db_sets, i*0.01);
-        // 		if(thresh_i.length != 0) break;
-        // 	}
+        	//Returns an array of threshold jaccard values (currently highest match).
+            let thresh_i;
+        	for(let i = 100; i > 0; i--){
+        		thresh_i = JaccardThreshold(userInputTokens, dbInputTokens, i * 0.01);
+        		if(thresh_i.length !== 0) break;
+        	}
 
-        // 	//Converts indexes to db dictionary values
-        // 	var choices = [];
-        // 	for(var i = 0; i<thresh_i.length; i++){
-        // 		choices.push(db[thresh_i[i]]);
-        // 	}
+        	//Converts indexes to db dictionary values
+        	var choices = [];
+            if(thresh_i){
+                for(var i = 0; i < thresh_i.length; i++){
+                    choices.push(db[thresh_i[i]]);
+                }
+            }
 
-        // 	//Chooses best responses based on rating
-        // 	var response = ratingPick(choices);
+        	//Chooses best responses based on rating
+        	setResponse(ratingPick(choices))
 
-        // 	//return the unknown response
-        // 	if(response == null) response = unknown;
+        	//return the unknown response
+        	if(response === null) setResponse(unknown);
 
-        // 	//Populate HTML values for user
-        // 	$('#response').html(response); //Send to html
-        // 	$('#chat')[0].reset();
+            //Populate HTML values for user
+            const responseObj = document.getElementById('response')
+            if(responseObj) responseObj.innerHTML = response
 
-        // 	//Reveal voting for response
-        // 	$('#thumb_up').show();
-        // 	$('#thumb_down').show();
-        // });
+            // TODO: user input reset on form submission.
+            // $('#chat')[0].reset();
+
+        	//Reveal voting for response
+            const thumbUp = document.getElementById('thumb_up')
+            const thumbDown = document.getElementById('thumb_up')
+            if(thumbUp) thumbUp.style.visibility = "visible";
+            if(thumbDown) thumbDown.style.visibility = "visible";
+        })
     }
 
     //Runs when the add response button is pressed
@@ -149,8 +121,10 @@ const ChatBotPage = () => {
         // 	$('#chat')[0].reset();
             
         // 	//Reveal voting for response
-        // 	$('#thumb_up').show();
-        // 	$('#thumb_down').show();
+        const thumbUp = document.getElementById('thumb_up')
+        const thumbDown = document.getElementById('thumb_up')
+        if(thumbUp) thumbUp.style.visibility = "visible";
+        if(thumbDown) thumbDown.style.visibility = "visible";
         // });
     }
 
@@ -165,8 +139,10 @@ const ChatBotPage = () => {
         // function(data) {
 
         // 	//prevents spamming
-        // 	$('#thumb_up').hide();
-        // 	$('#thumb_down').hide();
+        const thumbUp = document.getElementById('thumb_up')
+        const thumbDown = document.getElementById('thumb_up')
+        if(thumbUp) thumbUp.style.visibility = "hidden";
+        if(thumbDown) thumbDown.style.visibility = "hidden";
         // });
     }
 
@@ -181,8 +157,10 @@ const ChatBotPage = () => {
         // function(data) {
 
         //prevents spamming
-        // 	$('#thumb_up').hide();
-        // 	$('#thumb_down').hide();
+        const thumbUp = document.getElementById('thumb_up')
+        const thumbDown = document.getElementById('thumb_up')
+        if(thumbUp) thumbUp.style.visibility = "hidden";
+        if(thumbDown) thumbDown.style.visibility = "hidden";
         // });
     }
 
@@ -316,7 +294,7 @@ const ChatBotPage = () => {
                 <br/>
 
                 <form id="chat" method="post">
-                    <input name="user_string" id="user_string" type="text" onChange={e => setUserInput(e.target.value)} onKeyDown={keyboardSubmit}/><br/>
+                    <input name="user_input" id="user_input" type="text" onChange={e => setUserInput(e.target.value)} onKeyDown={keyboardSubmit}/><br/>
                     <input type="button" id="thumb_up" className="thumb_up" onClick={UpVote}/>
                     <input type="button" id="submit" onClick={Submit} value="Submit"/>
                     <input type="button" id="addResponse=" onClick={AddResponse} value="Add Response"/>
