@@ -1,6 +1,12 @@
 import { useState } from "react";
 import * as $ from 'jquery';
 
+interface chatbot{
+    user_input: string
+    response: string
+    rating: number
+}
+
 const ChatBotPage = () => {
 
     // Prevents usual form submission
@@ -24,10 +30,10 @@ const ChatBotPage = () => {
 
     const unknown = "I don't understand"
     const [userInput, setUserInput] = useState("")
-    const [response, setResponse] = useState(unknown)
     const [previousUserInput, setPreviousUserInput] = useState("")
     const [responded, setResponded] = useState(false)
-    
+    // const [response, setResponse] = useState(unknown)
+    let response = unknown
 
     //////////////////
     ////// MAIN //////
@@ -59,11 +65,11 @@ const ChatBotPage = () => {
         	let db = JSON.parse(data);
             
         	//Convert strings to one large set (not very efficient)
-        	let dbInputTokens: any[] = [];
-            db.forEach((element: any) => {
+        	let dbInputTokens: string[] = [];
+            db.forEach((element: chatbot) => {
                 dbInputTokens.push(element["user_input"])
             });
-                    
+            
         	//Returns an array of threshold jaccard values (currently highest match).
             let thresh_i;
         	for(let i = 100; i > 0; i--){
@@ -72,18 +78,18 @@ const ChatBotPage = () => {
         	}
 
         	//Converts indexes to db dictionary values
-        	var choices = [];
+        	let choices = [];
             if(thresh_i){
                 for(var i = 0; i < thresh_i.length; i++){
                     choices.push(db[thresh_i[i]]);
                 }
             }
 
-        	//Chooses best responses based on rating
-        	setResponse(ratingPick(choices))
+            //Chooses best responses based on rating
+        	response = (ratingPick(choices))
 
         	//return the unknown response
-        	if(response === null) setResponse(unknown);
+        	if(response === null) response = unknown
 
             //Populate HTML values for user
             const responseObj = document.getElementById('response')
@@ -106,7 +112,7 @@ const ChatBotPage = () => {
         //checks and prevents spam
         if((responded === false) || (userInput === "")) return;
         setResponded(false)
-        setResponse(userInput)
+        response = userInput
 
         //Tokenizes the user string
         const tokenArray = Tokenize(previousUserInput).join(" ");
@@ -204,26 +210,26 @@ const ChatBotPage = () => {
     }
 
     //Returns the indexs with Jaccard value greater than threshold
-    function JaccardThreshold(str_set: string[], db_set: string[][], threshold: number = 0.50){
+    function JaccardThreshold(str_set: string[], db_set: string[], threshold: number = 0.50){
         var threshold_index = []
 
         //run Jaccard and record index of threshold values
         for(var j = 0; j < db_set.length; j++){
-            if(Jaccard(str_set, db_set[j]) >= threshold) threshold_index.push(j)
+            if(Jaccard(str_set, db_set[j].split(" ")) >= threshold) threshold_index.push(j)
         }
         return threshold_index
     }
 
     //Algorithm for picking similar strings based 
     //on random numbers and rank.
-    function ratingPick(choices: any){
+    function ratingPick(choices: any[]) {
         
         //Nothing to choose from, or only one choice
         if(choices.length === 0) return null
         if(choices.length === 1) return choices[0]["response"]
 
         //Variables used in calculation
-        var my_data: never[] = []
+        var my_data = []
         var cur_rank = 0
         var max_rank = 0
         var min = 9999999
@@ -231,12 +237,12 @@ const ChatBotPage = () => {
 
         //obtain the minimum rating, parse the ratings
         //into Int and add them to my_data.
-        // for(x in choices){
-        // 	my_data.push(parseInt(choices[x]["rating"]));
-        // 	if(choices[x]["rating"] < min){
-        // 		min = choices[x]["rating"];
-        // 	}
-        // }
+        for(const x in choices){
+        	my_data.push(parseInt(choices[x]["rating"]));
+        	if(choices[x]["rating"] < min){
+        		min = choices[x]["rating"];
+        	}
+        }
 
         //Determines the algorithm for normalizing the data
         let negative = false
@@ -246,29 +252,29 @@ const ChatBotPage = () => {
         let difference =  min - 1
         if(negative === true) difference = -Math.abs(min - 1)
 
-        // for(x in my_data){
-        // 	//Modify data with difference
-        // 	my_data[x] = my_data[x] - difference;
+        for(const x in my_data){
+        	//Modify data with difference
+        	my_data[x] = my_data[x] - difference;
 
-        // 	//Creating the max_rank value
-        // 	max_rank = max_rank + my_data[x];
-        // }
+        	//Creating the max_rank value
+        	max_rank = max_rank + my_data[x];
+        }
 
         //Generate our random number
         const rand = Math.random()
 
         //run probability algorithm
-        // for(x in my_data){
-            //create a threshold for our first choice
-            // cur_rank = cur_rank + (my_data[x] / max_rank)
+        for(const x in my_data){
+            // create a threshold for our first choice
+            cur_rank = cur_rank + (my_data[x] / max_rank)
 
-            //return the choice which lies in the threshold
-        // 	if(rand < cur_rank){
-        // 		choice = choices[x]["response"];
-        // 		break
-        // 	}
-        // }
-        // return choice;
+            // return the choice which lies in the threshold
+        	if(rand < cur_rank){
+        		choice = choices[x]["response"];
+        		break
+        	}
+        }
+        return choice;
     }
 
     return (
