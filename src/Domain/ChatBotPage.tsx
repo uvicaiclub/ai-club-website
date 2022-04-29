@@ -58,7 +58,7 @@ const ChatBotPage = () => {
 
     //Queries the entire database
     //TODO: test/test.php needs a real name and local directory
-    $.post("http://192.168.0.170/PHP/submit.php", {
+    $.post("http://209.205.68.17:8888/PHP/submit.php", {
     }, function(data) {
 
       //Retrieves the database
@@ -115,7 +115,7 @@ const ChatBotPage = () => {
 
     //If the string and response are already in the db, increase
     //the rating. Otherwise, add to database
-    $.post("http://192.168.0.170/PHP/addResponse.php", {
+    $.post("http://209.205.68.17:8888/PHP/addResponse.php", {
       previousUserInput: tokenArray, 
       userInput: userInput
     }, function(data) {
@@ -139,7 +139,7 @@ const ChatBotPage = () => {
     if((response === unknown) || (response === "<br>\n            ")) return
 
     //updates the db
-    $.post("http://192.168.0.170/PHP/upvote.php", {
+    $.post("http://209.205.68.17:8888/PHP/upvote.php", {
       previousUserInput: previousUserInput, 
       response: response
     }, function(data) {
@@ -156,7 +156,7 @@ const ChatBotPage = () => {
     if((response === unknown) || (response === "<br>\n            ")) return
 
     //updates the db
-    $.post("http://192.168.0.170/PHP/downvote.php", {
+    $.post("http://209.205.68.17:8888/PHP/downvote.php", {
       previousUserInput: previousUserInput, 
       response: response
     }, function(data) {
