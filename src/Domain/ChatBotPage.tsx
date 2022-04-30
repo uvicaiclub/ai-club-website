@@ -1,6 +1,6 @@
 import { useState } from "react"
-// import { Stack } from '@fluentui/react';
 import * as $ from 'jquery'
+import "../styles/chatbot.css"
 
 interface chatbot {
   user_input: string
@@ -8,7 +8,7 @@ interface chatbot {
   rating: number
 }
 
-const ChatBotPage = () => {
+const ChatbotPage = () => {
 
   // Prevents usual form submission
   const form = document.getElementById("chat")
@@ -308,4 +308,4 @@ const ChatBotPage = () => {
   )
 }
 
-export default ChatBotPage
+export default ChatbotPage

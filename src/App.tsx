@@ -5,10 +5,12 @@ import AboutPage from './Domain/AboutPage';
 import ContactPage from './Domain/ContactPage';
 import ResourcePage from './Domain/ResourcePage';
 import ProjectPage from './Domain/ProjectPage';
-import ChatBotPage from './Domain/ChatBotPage';
+import ChatbotPage from './Domain/ChatbotPage';
 
 import Header from './Components/Header';
 import Footer from './Components/Footer';
+
+import "./styles/app.css"
 
 function App() {
   return (
@@ -21,7 +23,7 @@ function App() {
           <Route path="/contact" component={ContactPage} />
           <Route path="/projects" component={ProjectPage} />
           <Route path="/resource" component={ResourcePage} />
-          <Route path="/chatbot" component={ChatBotPage} />
+          <Route path="/chatbot" component={ChatbotPage} />
         </Switch>
     </Router>
     <Footer/>
