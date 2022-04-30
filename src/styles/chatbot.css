@@ -1,0 +1,25 @@
+form {
+  text-align: center;
+}
+
+input.thumb_up {
+  background: url('../images/thumb_up.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 16px 16px;
+  margin-right: 10px;
+  border-width: thin;
+  width: 20px;
+  height: 20px;  
+}
+
+input.thumb_down {
+  background: url('../images/thumb_down.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 16px 16px;
+  margin-left: 10px;
+  border-width: thin;
+  width: 20px;
+  height: 20px;
+}

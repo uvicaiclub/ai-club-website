@@ -1,0 +1,35 @@
+nav ul {
+  padding: 5px;
+  padding-top:5px;
+  list-style: none;
+  text-align: center;
+}
+
+nav li {
+  display: inline-block;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+nav a {
+  color: white;
+  text-transform: uppercase;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: grey;
+  text-decoration: bold;
+}
+
+.link_bar {
+  background: black;
+}
+
+.banner {
+  width: 450px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
