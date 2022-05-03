@@ -1,4 +1,4 @@
-import { JaccardThreshold, ratingPick, ShowRating, Tokenize } from "./Chatbot"
+import { JaccardThreshold, ratingPick, ShowRating, Tokenize } from "./chatbot"
 import * as $ from 'jquery'
 
 interface chatbot {
