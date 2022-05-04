@@ -10,6 +10,7 @@ interface chatbot {
 let response = ""
 let responded = false
 const unknown = "I don't understand"
+const DB_URL = "http://uvicaiclub.ca:8888/PHP/"
 
 //Runs when the submit button is pressed
 export const Submit = (userInput: string) : string => {
@@ -29,7 +30,7 @@ export const Submit = (userInput: string) : string => {
 
   //Queries the entire database
   //TODO: test/test.php needs a real name and local directory
-  $.post("http://209.205.68.17:8888/PHP/submit.php", {
+  $.post(DB_URL + "submit.php", {
   }, function(data) {
 
     //Retrieves the database
@@ -88,7 +89,7 @@ export const AddResponse = (userInput: string, previousUserInput: string) => {
 
   //If the string and response are already in the db, increase
   //the rating. Otherwise, add to database
-  $.post("http://209.205.68.17:8888/PHP/addResponse.php", {
+  $.post(DB_URL + "addResponse.php", {
     previousUserInput: tokenArray, 
     userInput: userInput
   }, function(data) {
@@ -112,7 +113,7 @@ export const UpVote = (previousUserInput: string) => {
   if((response === unknown) || (response === "<br>\n            ")) return
 
   //updates the db
-  $.post("http://209.205.68.17:8888/PHP/upvote.php", {
+  $.post(DB_URL + "upvote.php", {
     previousUserInput: previousUserInput, 
     response: response
   }, function(data) {
@@ -129,7 +130,7 @@ export const DownVote = (previousUserInput: string) => {
   if((response === unknown) || (response === "<br>\n            ")) return
 
   //updates the db
-  $.post("http://209.205.68.17:8888/PHP/downvote.php", {
+  $.post(DB_URL + "downvote.php", {
     previousUserInput: previousUserInput, 
     response: response
   }, function(data) {
