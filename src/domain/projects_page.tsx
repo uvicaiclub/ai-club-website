@@ -1,4 +1,5 @@
 import battlesnake from "../images/arena_champs.png"
+import "../styles/projects.css"
 
 const ProjectPage = () => {
 
@@ -8,7 +9,7 @@ const ProjectPage = () => {
       <h2>Battlesnake:</h2>
       <p>The UVic AI Club's submission for the 2020 <a href="https://play.battlesnake.com/">Battlesnake</a> Stay Home and Code event was very successful. Of over 80 very talented contestants, we became the rookie league arena champions!</p>
       <br/>
-      <img src={battlesnake} alt="UVic AI Club" className="winner"/><br/>
+      <img id="battlesnake" src={battlesnake} alt="UVic AI Club" className="winner"/><br/>
       <p>The next step will be to attend Battlesnake 2021 under the veteran division. We plan to make significant improvements to our design which will aid us in performing better during the tournament portion of the competition.</p>
       <br/>
       <h2>Chatbot:</h2>
