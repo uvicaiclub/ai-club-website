@@ -4,7 +4,7 @@ import growinggans from "../resources/Progressive Growing of Gans for Improved Q
 import adversarial from "../resources/UNSUPERVISED REPRESENTATION LEARNING WITH DEEP CONVOLUTIONAL GENERATIVE ADVERSARIAL NETWORKS.pdf"
 import nnevaluation from "../resources/Using Neural Networks For Evaluation in Heuristic Search Algorithm.pdf"
 
-const ResourcePage = () => {
+const ResourcesPage = () => {
 
   return (
     <main>
@@ -33,4 +33,4 @@ const ResourcePage = () => {
   )
 }
 
-export default ResourcePage
+export default ResourcesPage
