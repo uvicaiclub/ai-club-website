@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import HomePage from './domain/home_page';
 import AboutPage from './domain/about_page';
 import ContactPage from './domain/contact_page';
-import ResourcePage from './domain/resource_page';
-import ProjectPage from './domain/project_page';
+import ResourcePage from './domain/resources_page';
+import ProjectPage from './domain/projects_page';
 import ChatbotPage from './domain/chatbot_page';
 
 import Header from './components/header';
