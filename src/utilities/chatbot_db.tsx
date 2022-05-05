@@ -20,7 +20,7 @@ export const Submit = (userInput: string) : string => {
 
   // Update the previous user input field
   const previousUserInputObj = document.getElementById('previous_user_input')
-  if(previousUserInputObj) previousUserInputObj.innerHTML = userInput
+  if(previousUserInputObj) previousUserInputObj.textContent = userInput
   
   //Enable voting and responses
   responded = true
@@ -65,7 +65,7 @@ export const Submit = (userInput: string) : string => {
 
     //Populate HTML values for user
     const responseObj = document.getElementById('response')
-    if(responseObj) responseObj.innerHTML = response
+    if(responseObj) responseObj.textContent = response
 
     // TODO: user input reset on form submission.
     // $('#chat')[0].reset();
@@ -96,7 +96,7 @@ export const AddResponse = (userInput: string, previousUserInput: string) => {
 
     //Populate HTML values for user
     const responseObj = document.getElementById('response')
-    if(responseObj) responseObj.innerHTML = userInput
+    if(responseObj) responseObj.textContent = userInput
 
     // TODO: user input reset on form submission.
     // 	$('#chat')[0].reset();
