@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import HomePage from '../domain/home_page/home_page';
-import AboutPage from '../domain/about_page/about_page';
-import ContactPage from '../domain/contact_page/contact_page';
-import ResourcesPage from '../domain/resources_page/resources_page';
-import ProjectPage from '../domain/projects_page/projects_page';
-import ChatbotPage from '../domain/chatbot_page/chatbot_page';
-import NotFoundPage from "../domain/not_found_page/not_found_page";
+import HomePage from '../domains/home_page/home_page';
+import AboutPage from '../domains/about_page/about_page';
+import ContactPage from '../domains/contact_page/contact_page';
+import ResourcesPage from '../domains/resources_page/resources_page';
+import ProjectPage from '../domains/projects_page/projects_page';
+import ChatbotPage from '../domains/chatbot_page/chatbot_page';
+import NotFoundPage from "../domains/not_found_page/not_found_page";
 
 import Header from '../components/header/header';
 import Footer from '../components/footer/footer';

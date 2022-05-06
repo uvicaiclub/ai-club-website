@@ -1,8 +1,8 @@
-import aibook from "../../resources/Artificial Intelligence A Modern Approach.pdf"
-import datamining from "../../resources/Mining of Massive Datasets.pdf"
-import growinggans from "../../resources/Progressive Growing of Gans for Improved Quality, Stability, and Variation.pdf"
-import adversarial from "../../resources/UNSUPERVISED REPRESENTATION LEARNING WITH DEEP CONVOLUTIONAL GENERATIVE ADVERSARIAL NETWORKS.pdf"
-import nnevaluation from "../../resources/Using Neural Networks For Evaluation in Heuristic Search Algorithm.pdf"
+import aibook from "./resources/Artificial Intelligence A Modern Approach.pdf"
+import datamining from "./resources/Mining of Massive Datasets.pdf"
+import growinggans from "./resources/Progressive Growing of Gans for Improved Quality, Stability, and Variation.pdf"
+import adversarial from "./resources/UNSUPERVISED REPRESENTATION LEARNING WITH DEEP CONVOLUTIONAL GENERATIVE ADVERSARIAL NETWORKS.pdf"
+import nnevaluation from "./resources/Using Neural Networks For Evaluation in Heuristic Search Algorithm.pdf"
 
 const ResourcesPage = () => {
 

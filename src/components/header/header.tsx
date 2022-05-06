@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import banner from "../../images/banner.png"
+import banner from "./banner.png"
 import "./header.css"
 
 const Header = () => {

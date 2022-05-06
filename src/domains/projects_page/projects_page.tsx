@@ -1,4 +1,4 @@
-import battlesnake from "../../images/arena_champs.png"
+import battlesnake from "./arena_champs.png"
 import "./projects.css"
 
 const ProjectPage = () => {
