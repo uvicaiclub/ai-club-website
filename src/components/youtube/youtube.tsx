@@ -1,4 +1,4 @@
-import "../styles/youtube.css"
+import "./youtube.css"
 
 const Youtube = () => {
   return (  

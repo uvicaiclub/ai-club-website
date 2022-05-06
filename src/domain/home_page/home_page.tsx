@@ -1,5 +1,5 @@
 import { useState } from "react"
-import Youtube from "../components/youtube"
+import Youtube from "../../components/youtube/youtube"
 
 const HomePage = () => {
 
