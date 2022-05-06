@@ -62,3 +62,7 @@ The build is minified and the filenames include the hashes. Your app is ready to
 ### `npm run deploy`
 
 Installs serve globally (which is required to run the server) then deploys the production build at [http://localhost:3000](http://localhost:3000).
+
+## Web Analytics
+
+Web stats are generated through [https://microanalytics.io/](Microanalytics.io) via a tracking script found in index.html
