@@ -1,6 +1,6 @@
-import "../styles/chatbot.css"
+import "./chatbot.css"
 import { useState } from "react"
-import { AddResponse, DownVote, Submit, UpVote } from "../utilities/chatbot_db"
+import { AddResponse, DownVote, Submit, UpVote } from "./chatbot_db"
 
 const ChatbotPage = () => {
 

@@ -3,7 +3,7 @@ form {
 }
 
 input.thumb_up {
-  background: url('../images/thumb_up.png');
+  background: url('../../images/thumb_up.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: 16px 16px;
@@ -14,7 +14,7 @@ input.thumb_up {
 }
 
 input.thumb_down {
-  background: url('../images/thumb_down.png');
+  background: url('../../images/thumb_down.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: 16px 16px;

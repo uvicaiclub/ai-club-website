@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "typeRoots": ["./src/types"],
+    "types": ["@types/jest"],
     "target": "es5",
     "lib": [
       "dom",

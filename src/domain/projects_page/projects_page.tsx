@@ -1,5 +1,5 @@
-import battlesnake from "../images/arena_champs.png"
-import "../styles/projects.css"
+import battlesnake from "../../images/arena_champs.png"
+import "./projects.css"
 
 const ProjectPage = () => {
 
