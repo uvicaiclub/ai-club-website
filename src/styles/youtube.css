@@ -1,4 +1,5 @@
 #youtube {
-  width: 56vw;
-  height: 31.5vw;
+  /* 16:9 */
+  width: 32vw;
+  height: 18vw;
 }
