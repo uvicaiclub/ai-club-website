@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import App from './app';
+import App from './App';
 
 test('A basic test', () => {
   render(<App />);

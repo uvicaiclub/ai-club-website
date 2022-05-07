@@ -1,4 +1,4 @@
-const ContactPage = () => {
+const Contact = () => {
 
   return (
     <main>
@@ -11,4 +11,4 @@ const ContactPage = () => {
   )
 }
 
-export default ContactPage
+export default Contact

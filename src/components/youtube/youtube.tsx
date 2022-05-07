@@ -1,6 +1,6 @@
 import "./youtube.css"
 
-const Youtube = () => {
+const YouTube = () => {
   return (  
     <div id="youtube_container">
       <iframe
@@ -14,4 +14,4 @@ const Youtube = () => {
   )
 }
 
-export default Youtube
+export default YouTube
