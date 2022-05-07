@@ -3,7 +3,7 @@ const About = () => {
   return (
     <main>
       <br/>
-      <h2>Mission statement:</h2>
+      <h2>Mission Statement:</h2>
       <p>The UVic AI Club is a university-based organization that facilitates students by providing space for those interested in artificial intelligence to learn, grow, and succeed along their educational journey. This is accomplished by offering guidance and direction through projects which expose members to situations more commonly found in the marketplace.</p>
       
       <p>We promote a safe, open and inclusive workspace where students are encouraged to pursue their passion which bolsters their confidence and skill set in a fun and meaningful way.</p>

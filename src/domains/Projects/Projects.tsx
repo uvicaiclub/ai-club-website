@@ -13,7 +13,7 @@ const Projects = () => {
       <p>The next step will be to attend Battlesnake 2021 under the veteran division. We plan to make significant improvements to our design which will aid us in performing better during the tournament portion of the competition.</p>
       <br/>
       <h2>Chatbot:</h2>
-      <p>Our home made <a href="chatbot.html">chat-bot</a> is designed to add more value to our website. Our model was inspired by the Russian chat-bot <a href="http://p-bot.ru/en/index.html">p-bot</a>. We are currently developing the database to house and sort responses and behaviours.</p>
+      <p>Our home made <a href="/chatbot">chatbot</a> is designed to add more value to our website. Our model was inspired by the Russian chatbot <a href="http://p-bot.ru/en/index.html">p-bot</a>. We are currently developing the database to house and sort responses and behaviours.</p>
       <br/>
       <h2>Neurotech:</h2>
       <p>The UVic AI Club has been invited to work in collaboration with the UVic Neurotech Club to participate in the 2020 Neurotech competition. Currently, we are working to model neurological data collected through sensors to determine thresholds of concentration. Check out the <a href="https://neurotechx.com/">Neurotech</a> website for more details.</p> 
