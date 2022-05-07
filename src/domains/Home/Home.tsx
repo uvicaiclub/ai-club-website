@@ -1,7 +1,7 @@
 import { useState } from "react"
-import Youtube from "../../components/youtube/youtube"
+import Youtube from "../../components/YouTube"
 
-const HomePage = () => {
+const Home = () => {
 
   // Wait until to the webpage is loaded to display iframe
   const [youtube, setYoutube] = useState(false)
@@ -24,4 +24,4 @@ const HomePage = () => {
   )
 }
 
-export default HomePage
+export default Home

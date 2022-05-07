@@ -1,7 +1,7 @@
 import battlesnake from "./arena_champs.png"
 import "./projects.css"
 
-const ProjectPage = () => {
+const Projects = () => {
 
   return (
     <main>
@@ -21,4 +21,4 @@ const ProjectPage = () => {
   )
 }
 
-export default ProjectPage
+export default Projects
