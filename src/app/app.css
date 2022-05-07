@@ -1,12 +1,6 @@
 /*GLOBAL PARAMETERS*/
 html, body {
   background-color: #ffffffff;
-  height: 98%;
-}
-
-header {
-  background: black;
-  padding: 0px;
 }
 
 main {
