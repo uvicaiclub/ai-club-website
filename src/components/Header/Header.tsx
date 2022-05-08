@@ -6,7 +6,7 @@ const Header = () => {
 
   return (  
     <div>
-      <img src={banner} className="banner" alt="UVic AI Club" />       
+      <img src={banner} className="banner" alt="Banner" />       
       <header>
         <div className="link_bar">
           <nav>
