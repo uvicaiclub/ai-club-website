@@ -1,10 +1,8 @@
-import "./footer.css"
-
 const Footer = () => {
 
   return (  
-    <footer>
-      <h5>® 2019</h5>
+    <footer className="text-end">
+      <div className="text-end text-white me-3">® 2019</div>
     </footer>
   )
 }

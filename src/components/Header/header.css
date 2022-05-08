@@ -1,12 +1,5 @@
-header {
-  background: black;
-  padding: 0px;
-}
-
 nav ul {
   padding: 5px;
-  padding-top:5px;
-  list-style: none;
   text-align: center;
 }
 
@@ -26,13 +19,4 @@ nav a {
 nav a:hover {
   color: grey;
   text-decoration: bold;
-}
-
-.link_bar {
-  background: black;
-}
-
-.banner {
-  width: 450px;
-  max-width: 100vw !important;
 }

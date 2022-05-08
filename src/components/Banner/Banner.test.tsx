@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react';
-import YouTube from './YouTube';
+import Banner from './Banner';
 
-test('YouTube: Renders', () => {
-  render(<YouTube/>);
-  // const banner = screen.getByRole('iframe');
+test('Banner: Renders', () => {
+  // render(<Banner/>);
+  // const banner = screen.getByRole('img');
   // expect(banner).toHaveAttribute('src', '/banner.png');
   // expect(banner).toHaveAttribute('alt', 'Banner');
 });
