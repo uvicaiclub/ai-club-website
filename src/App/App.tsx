@@ -17,18 +17,26 @@ import "./app.css"
 function App() {
   return (
     <Router>
-      <Banner/>
-      <Header/>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/about" component={About} />
-        <Route path="/contact" component={Contact} />
-        <Route path="/projects" component={Project} />
-        <Route path="/resources" component={Resources} />
-        <Route path="/chatbot" component={Chatbot} />
-        <Route path="*" component={NotFound} />
-      </Switch>
-      <Footer/>
+      <div className="overflow-hidden" style={{height: "16vh"}}>
+        <Banner/>
+        <Header/>
+      </div>
+      <div className="overflow-auto" style={{height: "84vh"}}>
+        <main className="d-flex justify-content-center pt-3">
+          <div className="main-container">
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/about" component={About} />
+              <Route path="/contact" component={Contact} />
+              <Route path="/projects" component={Project} />
+              <Route path="/resources" component={Resources} />
+              <Route path="/chatbot" component={Chatbot} />
+              <Route path="*" component={NotFound} />
+            </Switch>
+          </div>
+        </main>
+        <Footer/>
+      </div>
     </Router>
   );
 }

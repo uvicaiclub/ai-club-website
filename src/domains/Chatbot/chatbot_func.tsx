@@ -24,38 +24,41 @@ export const Tokenize = (str: string) => {
 
   //Parse string and split
   let str_arr = str.toLowerCase()
-  .replace('?',' ?')
-  .replace('!',' !')
+  .replace('\'re',' are ')
+  .replace('\'ll',' will ')
+  .replace('\'d',' would ')
+  .replace('\'s',' is ')
+  .replace('\'m',' am ')
+  .replace('?',' ? ')
+  .replace('!',' ! ')
   .replace(',',' ')
   .replace('.',' ')
-  .replace('\'re',' are')
-  .replace('\'ll',' will')
-  .replace('\'d',' would')
-  .replace('\'s',' is')
-  .replace('\'m',' am')
   .split(" ")
 
   //Remove empty elements
   for(let i = 0; i < str_arr.length; i++) {
     if (str_arr[i] === "") str_arr.splice(i--, 1)
   }
-  return str_arr
+
+  // Remove duplicates
+  const uniq_arr: Set<string> = new Set(str_arr);
+  return Array.from(uniq_arr)
 }
 
 //Returns the indexs with Jaccard value greater than threshold
-export const JaccardThreshold = (str_set: string[], db_set: string[], threshold: number = 0.50) => {
+export const JaccardThreshold = (str_set: string[], db_set: string[][], threshold: number = 0.50) => {
 
   //run Jaccard and record index of threshold values
   let threshold_index = []
   for(let j = 0; j < db_set.length; j++) {
-    if(Jaccard(str_set, db_set[j].split(" ")) >= threshold) threshold_index.push(j)
+    if(Jaccard(str_set, db_set[j]) >= threshold) threshold_index.push(j)
   }
   return threshold_index
 }
 
 //Algorithm for picking similar strings based 
 //on random numbers and rank.
-export const ratingPick = (choices: any[]) => {
+export const ratingPick = (choices: any) => {
   
   //Nothing to choose from, or only one choice
   if(choices.length === 0) return null
