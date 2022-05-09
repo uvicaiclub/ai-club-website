@@ -3,7 +3,7 @@ import { useState } from "react"
 import { AddResponse, DownVote, Submit, UpVote } from "./chatbot_db"
 
 const ChatbotPage = () => {
-
+  
   const [userInput, setUserInput] = useState('')
   const [previousUserInput, setPreviousUserInput] = useState('')
 
@@ -22,28 +22,26 @@ const ChatbotPage = () => {
   }
 
   return (
-    <main className="d-flex justify-content-center pb-4">
-      <div className="main-container text-center">
-        <div className="h2 pb-2">UVic AI Club Chatbot</div>
+    <div className="text-center">
 
-        <div className="d-flex justify-content-center">
-          <div>
-            You:
-            <div id="previous_user_input" className="pb-4"><br/></div>
-            Chatbot:
-            <div id="response" className="pb-4"><br/></div>
-            
-            <form id="chat" method="post" style={{textAlign: "center"}}>
-              <input name="user_input" id="user_input" type="text" onChange={e => setUserInput(e.target.value)} onKeyDown={keyboardSubmit}/><br/>
-                <input type="button" id="thumb_up" className="thumb_up" onClick={() => UpVote(previousUserInput)}/>
-                <input type="button" id="submit" onClick={() => setPreviousUserInput(Submit(userInput))} value="Submit"/>
-                <input type="button" id="addResponse=" onClick={() => AddResponse(userInput, previousUserInput)} value="Add Response"/>
-                <input type="button" id="thumb_down" className="thumb_down" onClick={() => DownVote(previousUserInput)}/>
-            </form>
-          </div>
+      <div className="h2">UVic AI Club Chatbot</div>
+      <div className="d-flex justify-content-center">
+        <div>
+          You:
+          <div id="previous_user_input" className="pb-4"><br/></div>
+          Chatbot:
+          <div id="response" className="pb-4"><br/></div>
+          
+          <form id="chat" method="post" style={{textAlign: "center"}}>
+            <input name="user_input" id="user_input" type="text" onChange={e => setUserInput(e.target.value)} onKeyDown={keyboardSubmit}/><br/>
+              <input type="button" id="thumb_up" className="thumb_up" onClick={() => UpVote(previousUserInput)}/>
+              <input type="button" id="submit" onClick={() => setPreviousUserInput(Submit(userInput))} value="Submit"/>
+              <input type="button" id="addResponse=" onClick={() => AddResponse(userInput, previousUserInput)} value="Add Response"/>
+              <input type="button" id="thumb_down" className="thumb_down" onClick={() => DownVote(previousUserInput)}/>
+          </form>
         </div>
       </div>
-    </main>
+    </div>
   )
 }
 

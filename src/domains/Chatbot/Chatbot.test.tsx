@@ -9,24 +9,34 @@ test('Chatbot page: Renders', () => {
 });
 
 test('Chatbot Functions: Jaccard', () => {
-  const [jaccard, expected] = [Jaccard(['a', 'b', 'c', 'd'], ['a', 'b']), 0.5]
+  const jaccard = Jaccard(['a', 'b', 'c', 'd'], ['a', 'b'])
+  const expected = 0.5
   expect(jaccard).toEqual(expected);
 });
 
 test('Chatbot Functions: Tokenize', () => {
   const tokens = Tokenize("They're, I'll. that'd! William's? I'm?")
-  const expected = ['?', '!', 'are', 'will', 'would', 'is', 'am', 'they', 'i', 'that', 'william']
-  // they,are,i,will,that,would,!,william,is,?,i,am?
-  // expect(tokens).toEqual(expected);
+  const expected = ['they', 'are', 'i', 'will', 'that', 'would', '!', 'william', 'is', '?', 'am']
+  expect(tokens).toEqual(expected);
 });
 
 test('Chatbot Functions: JaccardThreshold', () => {
-  // const jt = JaccardThreshold(["this", "is"], [["is"], ["not"], ["this"]], 0.5)
-  // const expected = [0,2]
-  // expect(jt).toEqual(expected);
+  const jt = JaccardThreshold(["this", "is"], [["is"], ["not"], ["this"]], 0.5)
+  const expected = [0,2]
+  expect(jt).toEqual(expected);
 });
 
 test('Chatbot Functions: ratingPick', () => {
-  // Chatbot needs more repairs before this test script can be written.
-  // const rp = ratingPick()
+  // With Random being used, is it even possible to predict the outcome?
+  // const choice1 = {
+  //   rating: "1",
+  //   response: "hi",
+  //   user_input: "hello there you",
+  // }
+  // const choice2 = {
+  //   rating: "2",
+  //   response: "hello",
+  //   user_input: "hi there",
+  // }
+  // const rp = ratingPick([choice1, choice2])
 });

@@ -35,13 +35,13 @@ export const Submit = (userInput: string) : string => {
 
     //Retrieves the database
     let db = JSON.parse(data)
-      
+
     //Convert strings to one large set (not very efficient)
-    let dbInputTokens: string[] = []
-      db.forEach((element: chatbot) => {
-        dbInputTokens.push(element["user_input"])
-      })
-      
+    let dbInputTokens: string[][] = []
+    db.forEach((element: chatbot) => {
+      dbInputTokens.push(element["user_input"].split(" "))
+    })
+
     //Returns an array of threshold jaccard values (currently highest match).
     let thresh_i
     for(let i = 100; i > 0; i--) {
