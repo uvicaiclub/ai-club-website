@@ -17,7 +17,7 @@ import "./app.css"
 function App() {
   return (
     <Router>
-      <div className="overflow-hidden" style={{height: "16vh"}}>
+      <div style={{height: "16vh"}}>
         <Banner/>
         <Header/>
       </div>
