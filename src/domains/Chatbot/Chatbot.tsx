@@ -21,6 +21,11 @@ const ChatbotPage = () => {
     }
   }
 
+  function setPUI(input: string) {
+    const pui = document.getElementById("previous_user_input")?.innerHTML
+    if(pui) setPreviousUserInput(pui)
+  }
+
   return (
     <div className="text-center">
 
@@ -35,7 +40,7 @@ const ChatbotPage = () => {
           <form id="chat" method="post" style={{textAlign: "center"}}>
             <input name="user_input" id="user_input" type="text" onChange={e => setUserInput(e.target.value)} onKeyDown={keyboardSubmit}/><br/>
               <input type="button" id="thumb_up" className="thumb_up" onClick={() => UpVote(previousUserInput)}/>
-              <input type="button" id="submit" onClick={() => setPreviousUserInput(Submit(userInput))} value="Submit"/>
+              <input type="button" id="submit" onClick={() => setPUI(Submit(userInput))} value="Submit"/>
               <input type="button" id="addResponse=" onClick={() => AddResponse(userInput, previousUserInput)} value="Add Response"/>
               <input type="button" id="thumb_down" className="thumb_down" onClick={() => DownVote(previousUserInput)}/>
           </form>
