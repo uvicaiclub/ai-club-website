@@ -17,11 +17,11 @@ import "./app.css"
 function App() {
   return (
     <Router>
-      <div style={{height: "16vh"}}>
+      <div style={{height: "auto"}}>
         <Banner/>
         <Header/>
       </div>
-      <div className="overflow-auto" style={{height: "84vh"}}>
+      <div className="overflow-auto" style={{height: "auto"}}>
         <main className="d-flex justify-content-center pt-3">
           <div className="main-container">
             <Switch>
