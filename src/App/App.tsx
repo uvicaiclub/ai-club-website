@@ -17,7 +17,7 @@ import "./app.css"
 function App() {
   return (
     <Router>
-      <div style={{height: "auto"}}>
+      <div style={{height: "auto"}} >
         <Banner/>
         <Header/>
       </div>
