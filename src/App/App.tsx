@@ -1,27 +1,27 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-import Home from '../domains/Home';
-import About from '../domains/About';
-import Chatbot from '../domains/Chatbot';
-import Contact from '../domains/Contact';
-import Project from '../domains/Projects';
-import NotFound from "../domains/NotFound";
-import Resources from '../domains/Resources';
+import Home from '../domains/Home'
+import About from '../domains/About'
+import Chatbot from '../domains/Chatbot'
+import Contact from '../domains/Contact'
+import Project from '../domains/Projects'
+import NotFound from '../domains/NotFound'
+import Resources from '../domains/Resources'
 
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import Banner from "../components/Banner";
+import Header from '../components/Header'
+import Footer from '../components/Footer'
+import Banner from '../components/Banner'
 
-import "./app.css"
+import './app.css'
 
 function App() {
   return (
     <Router>
-      <div style={{height: "auto"}}>
-        <Banner/>
-        <Header/>
+      <div style={{ height: 'auto' }}>
+        <Banner />
+        <Header />
       </div>
-      <div className="overflow-auto" style={{height: "auto"}}>
+      <div className="overflow-auto" style={{ height: 'auto' }}>
         <main className="d-flex justify-content-center pt-3">
           <div className="main-container">
             <Switch>
@@ -35,10 +35,10 @@ function App() {
             </Switch>
           </div>
         </main>
-        <Footer/>
+        <Footer />
       </div>
     </Router>
-  );
+  )
 }
 
-export default App;
+export default App

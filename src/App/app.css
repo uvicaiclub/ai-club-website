@@ -1,8 +1,9 @@
 .main-container {
-  width: 750px; 
+  width: 750px;
   max-width: 75%;
 }
 
-footer, header {
+footer,
+header {
   background-color: black;
 }

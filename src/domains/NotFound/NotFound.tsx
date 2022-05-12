@@ -1,5 +1,4 @@
 const NotFound = () => {
-
   return (
     <div>
       <div className="h1">404: The requested page is not found!</div>
