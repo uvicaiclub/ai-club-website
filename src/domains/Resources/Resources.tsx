@@ -15,6 +15,11 @@ const Resources = () => {
       </div>
       
       <div className="pt-2">
+        <div className="h3">Courses</div>
+        <p><a target="_blank" rel="noreferrer" href="https://www.simplilearn.com/resources/artificial-intelligence-machine-learning">Simplilearn</a>: A free collection of articles, ebooks, webinars, video tutorials, and practice tests related to AI & machine learning.</p>
+      </div>
+
+      <div className="pt-2">
         <div className="h3">Videos</div>
         <p><a target="_blank" rel="noreferrer" href="https://www.youtube.com/user/keeroyz/">Two Minute Papers</a>: These videos are very professional and rooted in academic papers. The articles presented are clear, concise, and cutting edge.</p>
         <p><a target="_blank" rel="noreferrer" href="https://www.youtube.com/channel/UC0e3QhIYukixgh5VVpKHH9Q">Code Bullet</a>: This fellow is a little vulgar, however he is also very good at explaining AI problems and solutions.</p>
