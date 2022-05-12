@@ -6,7 +6,8 @@ The website is designed to be the premier online resource for people interested 
 
 In order to install the project, there are a few requirements. Installation is different depending on your operating system.
 
-### Unix 
+### Unix
+
 If you are using a unix based machine (linux/mac), start by installing git by opening a terminal and inputing the following command:<br />
 `sudo apt install git-all`
 
@@ -24,15 +25,17 @@ Simply run the follow script from terminal:<br />
 Project is now installed and ready to go!
 
 ### Windows
+
 Make sure you install the following programs:
+
 - Git: [https://git-scm.com/downloads](https://git-scm.com/downloads)
 - Node.js: [https://nodejs.org/en/download/](https://nodejs.org/en/download/)
 
-Open command prompt (or powershell) and navigate to where you want the project located. 
+Open command prompt (or powershell) and navigate to where you want the project located.
 
 Input the following command:<br />
-`git clone https://github.com/uvicaiclub/ai-club-website.git` 
- 
+`git clone https://github.com/uvicaiclub/ai-club-website.git`
+
 This will download the current website repository.
 
 Navigate your terminal into the project folder:<br />

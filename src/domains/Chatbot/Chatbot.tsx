@@ -1,34 +1,34 @@
-import "./chatbot.css"
-import { useState } from "react"
-import { AddResponse, DownVote, Submit, UpVote } from "./chatbot_db"
+import './chatbot.css'
+import { useState } from 'react'
+import { AddResponse, DownVote, Submit, UpVote } from './chatbot_db'
 
 const ChatbotPage = () => {
-  
   const [userInput, setUserInput] = useState('')
   const [previousUserInput, setPreviousUserInput] = useState('')
 
   // Prevents usual form submission
-  const form = document.getElementById("chat")
-  form?.addEventListener("submit", event => {
+  const form = document.getElementById('chat')
+  form?.addEventListener('submit', (event) => {
     event.preventDefault()
   })
 
   // Click Submit on "Enter" button
-  function keyboardSubmit(event: { keyCode: any; }) {
-    if (event.keyCode === 13) {  // 13 is the return key
-      const submit = document.getElementById("submit")
-      if(submit !== null) submit.click()
+  function keyboardSubmit(event: { keyCode: any }) {
+    if (event.keyCode === 13) {
+      // 13 is the return key
+      const submit = document.getElementById('submit')
+      if (submit !== null) submit.click()
     }
   }
 
   function setPUI(input: string) {
-    const pui = document.getElementById("previous_user_input")?.innerHTML
-    if(pui) setPreviousUserInput(pui)
+    const pui = document.getElementById('previous_user_input')?.innerHTML
+    if (pui) setPreviousUserInput(pui)
   }
 
+  // prettier-ignore
   return (
     <div className="text-center">
-
       <div className="h2">UVic AI Club Chatbot</div>
       <div className="d-flex justify-content-center">
         <div>
