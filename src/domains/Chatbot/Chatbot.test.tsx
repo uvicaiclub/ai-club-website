@@ -15,7 +15,6 @@ test('Chatbot Functions: Jaccard', () => {
 })
 
 test('Chatbot Functions: Tokenize', () => {
-  // prettier-ignore
   const expected = ['they', 'are', 'i', 'will', 'that', 'would', '!', 'william', 'is', '?', 'am']
   const tokens = Tokenize("They're, I'll. that'd! William's? I'm?")
   expect(tokens).toEqual(expected)
@@ -30,14 +29,14 @@ test('Chatbot Functions: JaccardThreshold', () => {
 test('Chatbot Functions: ratingPick', () => {
   // With Random being used, is it even possible to predict the outcome?
   // const choice1 = {
-  //   rating: "1",
-  //   response: "hi",
-  //   user_input: "hello there you",
+  //   rating: '1',
+  //   response: 'hi',
+  //   user_input: 'hello there you',
   // }
   // const choice2 = {
-  //   rating: "2",
-  //   response: "hello",
-  //   user_input: "hi there",
+  //   rating: '2',
+  //   response: 'hello',
+  //   user_input: 'hi there',
   // }
   // const rp = ratingPick([choice1, choice2])
 })
