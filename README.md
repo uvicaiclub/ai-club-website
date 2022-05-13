@@ -20,7 +20,7 @@ Navigate your terminal into the project folder:<br />
 `cd ai-club-website`
 
 Simply run the follow script from terminal:<br />
-`./linux-install.sh`
+`sh ./linux-install.sh`
 
 Project is now installed and ready to go!
 
@@ -65,6 +65,8 @@ The build is minified and the filenames include the hashes. Your app is ready to
 ### `npm run deploy`
 
 Installs serve globally (which is required to run the server) then deploys the production build at [http://localhost:3000](http://localhost:3000).
+
+sh ./linux-install.sh ; npm run deploy
 
 ## Docker
 

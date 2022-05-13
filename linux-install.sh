@@ -1,5 +1,6 @@
 #!/bin/sh
 sudo apt update
-sudo apt upgrade
+sudo apt upgrade -y
+git pull
 sudo apt install nodejs
-sudo apt npm install
+sudo npm install
