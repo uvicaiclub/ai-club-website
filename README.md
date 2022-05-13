@@ -66,6 +66,13 @@ The build is minified and the filenames include the hashes. Your app is ready to
 
 Installs serve globally (which is required to run the server) then deploys the production build at [http://localhost:3000](http://localhost:3000).
 
+## Docker
+
+The website can be containerized on docker with the following pipeline command:
+docker image rm -f ai-club-website ; docker build . -t ai-club-website ; docker run -p 3030:3000 -d ai-club-website
+
+Build will run in development mode on [http://localhost:3030](http://localhost:3030)
+
 ## Web Analytics
 
 Web stats are generated through [https://microanalytics.io/](Microanalytics.io) via a tracking script found in index.html
