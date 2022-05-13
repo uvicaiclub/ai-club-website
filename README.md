@@ -20,7 +20,7 @@ Navigate your terminal into the project folder:<br />
 `cd ai-club-website`
 
 Simply run the follow script from terminal:<br />
-`./linux-install.sh`
+`sh ./linux-install.sh`
 
 Project is now installed and ready to go!
 
