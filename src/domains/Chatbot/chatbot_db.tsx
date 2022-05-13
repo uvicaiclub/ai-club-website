@@ -88,10 +88,9 @@ export const AddResponse = (userInput: string, previousUserInput: string) => {
   //Tokenizes the user string
   const tokenArray = Tokenize(previousUserInput).join(' ')
 
-  // prettier-ignore
   //If the string and response are already in the db, increase
   //the rating. Otherwise, add to database
-  $.post(DB_URL + "addResponse.php", {
+  $.post(DB_URL + 'addResponse.php', {
     previousUserInput: tokenArray, 
     userInput: userInput
   }, function(data) {
@@ -113,9 +112,8 @@ export const UpVote = (previousUserInput: string) => {
   //Omit unknown response
   if (response === unknown || response === '<br>\n            ') return
 
-  // prettier-ignore
   //updates the db
-  $.post(DB_URL + "upvote.php", {
+  $.post(DB_URL + 'upvote.php', {
     previousUserInput: previousUserInput, 
     response: response
   }, function(data) {
