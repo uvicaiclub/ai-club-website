@@ -22,7 +22,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "deploy": "npm install -g serve && set PORT=8888 && serve -s build",
+    "deploy": "npm install -g serve && react-scripts build && PORT=3030 serve -s build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
