@@ -76,11 +76,23 @@ To install Docker Desktop, visit [https://www.docker.com/products/docker-desktop
 
 ### Development Server
 
-The website can be containerized on docker and run in a development environment.
+The website can be containerized on docker and run in a development environment in one of two ways.
 
-Make sure you first have VS Code installed on your system for compatability: [https://code.visualstudio.com/download](Download VS Code)
+First, make sure you first have VS Code installed on your system for compatability: [https://code.visualstudio.com/download](Download VS Code)
 
-Click on Dev Environments over on the left side of the screen.
+#### Open Container in VS Code
+
+Open up VS Code and click on the green bar at the bottom left of the screen. Near the top of the screena list of options will appear, click on "Open in container"
+
+OR
+
+A prompt may appear in the bottom right to open the project in a container, click "Open in container".
+
+Wait for the container to build and you're ready to go!
+
+#### Create Container in Docker Desktop
+
+Open up Docker Desktop and click on Dev Environments over on the left side of the screen.
 
 Then click on Create or Create New Environment
 
