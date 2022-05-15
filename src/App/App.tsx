@@ -5,6 +5,7 @@ import About from '../domains/About'
 import Chatbot from '../domains/Chatbot'
 import Contact from '../domains/Contact'
 import Project from '../domains/Projects'
+import Schedule from '../domains/Schedule'
 import NotFound from '../domains/NotFound'
 import Resources from '../domains/Resources'
 
@@ -27,10 +28,11 @@ function App() {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route path="/about" component={About} />
-              <Route path="/contact" component={Contact} />
               <Route path="/projects" component={Project} />
               <Route path="/resources" component={Resources} />
               <Route path="/chatbot" component={Chatbot} />
+              <Route path="/schedule" component={Schedule} />
+              <Route path="/contact" component={Contact} />
               <Route path="*" component={NotFound} />
             </Switch>
           </div>
