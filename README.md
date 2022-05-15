@@ -71,6 +71,7 @@ sh ./linux-install.sh ; npm run deploy
 ## Docker
 
 The website can be containerized on docker with the following pipeline command:
+
 docker image rm -f ai-club-website ; docker build . -t ai-club-website ; docker run -p 3030:3000 -d ai-club-website
 
 Build will run in development mode on [http://localhost:3030](http://localhost:3030)
