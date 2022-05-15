@@ -66,15 +66,35 @@ The build is minified and the filenames include the hashes. Your app is ready to
 
 Installs serve globally (which is required to run the server) then deploys the production build at [http://localhost:3000](http://localhost:3000).
 
-sh ./linux-install.sh ; npm run deploy
+`sh ./linux-install.sh ; npm run deploy`
 
 ## Docker
 
-The website can be containerized on docker with the following pipeline command:
+The website can be containerized on docker. The easiest way to do this is to first install the Docker Desktop application.
 
-docker image rm -f ai-club-website ; docker build . -t ai-club-website ; docker run -p 3030:3000 -d ai-club-website
+To install Docker Desktop, visit [https://www.docker.com/products/docker-desktop/](Download Docker Desktop)
 
-Build will run in development mode on [http://localhost:3030](http://localhost:3030)
+### Development Server
+
+The website can be containerized on docker and run in a development environment.
+
+Make sure you first have VS Code installed on your system for compatability: [https://code.visualstudio.com/download](Download VS Code)
+
+Click on Dev Environments over on the left side of the screen.
+
+Then click on Create or Create New Environment
+
+Follow the prompts untill it asks for a Git Repository, input: `https://github.com/uvicaiclub/ai-club-website.git` and press continue.
+
+Wait for the Docker to automatically create the dev environment, then click continue.
+
+Click to open in VS Code and the development server should be ready to go!
+
+### Local Image
+
+A Docker image for the repository can be created and run locally with the following pipeline command:
+
+`docker image rm -f ai-club-website ; docker build . -t ai-club-website ; docker run -p 3030:3000 -d ai-club-website`
 
 ## Web Analytics
 
