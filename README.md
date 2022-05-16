@@ -1,3 +1,5 @@
+[![Docker Image](https://github.com/henryclw/ai-club-website/actions/workflows/docker-image-build-push.yml/badge.svg)](https://github.com/henryclw/ai-club-website/actions/workflows/docker-image-build-push.yml)
+
 # Getting Started with the UVic AI Club Website
 
 The website is designed to be the premier online resource for people interested in the club to learn about what we do, how we do it, where to find us, and to have fun while doing so. It's also meant to highlight our skills, feats, and professionalism by imbuing the website with high quality and exceptional user experience. You can see the deployed app at [http://uvicaiclub.ca](http://uvicaiclub.ca).
