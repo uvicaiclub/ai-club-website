@@ -1,22 +1,14 @@
-FROM node:14
+FROM node:14-alpine AS builder
 
-# Create app directory
-WORKDIR /usr/src/app
+RUN apk update
+RUN npm install -g pnpm
 
-# Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-# where available (npm@5+)
-COPY package*.json ./
-
-RUN apt update && \
-    apt upgrade -y && \
-    npm install && \
-    npm install -g serve
-
-# If you are building your code for production
-# RUN npm ci --only=production
-
-# Bundle app source
+WORKDIR /app
 COPY . .
 
-#CMD [ "npm", "start" ]
+RUN npm install
+RUN npm run build
+
+FROM nginx:stable-alpine
+COPY --from=builder /app/build/ /usr/share/nginx/html/
+EXPOSE 80
