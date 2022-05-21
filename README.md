@@ -95,6 +95,10 @@ docker build -t uvicaiclub/ai-club-website:latest .
 docker run -it -d --restart unless-stopped --name ai-club-website-latest -p "8123:80" uvicaiclub/ai-club-website:latest
 ```
 
+### Dev pipeline command for new builds
+
+sudo docker stop ai-club-website-latest ; sudo docker container rm ai-club-website-latest ; sudo docker pull uvicaiclub/ai-club-website:latest ; sudo docker run -it -d --restart unless-stopped --name ai-club-website-latest -p "8123:80" uvicaiclub/ai-club-website:latest
+
 ## Web Analytics
 
 Web stats are generated through [https://microanalytics.io/](Microanalytics.io) via a tracking script found in index.html
