@@ -92,7 +92,7 @@ docker build -t uvicaiclub/ai-club-website:latest .
 
 ```bash
 # run the container and then visit http://localhost:8123/
-docker run -it -d --name ai-club-website-latest -p "8123:80" uvicaiclub/ai-club-website:latest
+docker run -it -d --restart unless-stopped --name ai-club-website-latest -p "8123:80" uvicaiclub/ai-club-website:latest
 ```
 
 ## Web Analytics
