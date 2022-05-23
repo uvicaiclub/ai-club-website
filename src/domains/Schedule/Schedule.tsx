@@ -2,7 +2,9 @@ const Schedule = () => {
   return (
     <div>
       <div className="pt-2">
-        <div className="h3 pt-2">Club Meetings - Tuesday 4:30pm in ECS 130</div>
+        <div className="h3 pt-2">
+          Club Meetings - Tuesday 6:00pm in ECS 128 or 130
+        </div>
         <p>
           Every week the AI Club meets to discuss plans, code changes, and
           progress. Come be a part of our wonderful and talented community by
