@@ -20,10 +20,11 @@ const Schedule = () => {
           The club is hosting a hackathon to focus on developing club software
           and our NN battlesnake, food and beverages will be provided!
         </p>
-        <div className="h3 pt-2">Club Battlesnake Tournament - June 25th</div>
+        <div className="h3 pt-2">Club Battlesnake Tournament - July 16th</div>
         <p>
           We'll be hosting our own Battlesnake tournament this year for club
-          participants. Food, beverages, and prizes are available!
+          participants. Food, beverages, and prizes are available! July 16th, 11
+          am in ECS first floor (room TBD).
         </p>
       </div>
     </div>
