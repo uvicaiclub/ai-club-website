@@ -1,3 +1,5 @@
+import Youtube from '../../components/Youtube'
+
 const Home = () => {
   return (
     <div>
@@ -7,18 +9,7 @@ const Home = () => {
         (UVSS) and Engineering Student Society (ESS).
       </div>
 
-      <div className="d-flex justify-content-center p-3">
-        <iframe
-          id="youtube"
-          title="AI Club Promotion"
-          src="https://www.youtube-nocookie.com/embed/L9kA8nSJdYw"
-          frameBorder="0"
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-          width="640"
-          height="360"
-          className="mw-100"
-        ></iframe>
-      </div>
+      <Youtube />
 
       <div>
         The preceding video is by Two Minute Papers and illustrates the

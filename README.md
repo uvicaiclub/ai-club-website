@@ -1,3 +1,5 @@
+[![Docker Image](https://github.com/henryclw/ai-club-website/actions/workflows/docker-image-build-push.yml/badge.svg)](https://github.com/henryclw/ai-club-website/actions/workflows/docker-image-build-push.yml)
+
 # Getting Started with the UVic AI Club Website
 
 The website is designed to be the premier online resource for people interested in the club to learn about what we do, how we do it, where to find us, and to have fun while doing so. It's also meant to highlight our skills, feats, and professionalism by imbuing the website with high quality and exceptional user experience. You can see the deployed app at [http://uvicaiclub.ca](http://uvicaiclub.ca).
@@ -74,39 +76,28 @@ The website can be containerized on docker. The easiest way to do this is to fir
 
 To install Docker Desktop, visit [https://www.docker.com/products/docker-desktop/](Download Docker Desktop)
 
-### Development Server
+### Get the image
 
-The website can be containerized on docker and run in a development environment in one of two ways.
+You could choose either pulling the image from docker hub or building it from the source.
 
-First, make sure you first have VS Code installed on your system for compatability: [https://code.visualstudio.com/download](Download VS Code)
+```bash
+# pull from docker hub
+docker pull uvicaiclub/ai-club-website:latest
 
-#### Open Container in VS Code
+# OR, build the image
+docker build -t uvicaiclub/ai-club-website:latest .
+```
 
-Open up VS Code and click on the green bar at the bottom left of the screen. Near the top of the screena list of options will appear, click on "Open in container"
+### Run the container
 
-OR
+```bash
+# run the container and then visit http://localhost:8123/
+docker run -it -d --restart unless-stopped --name ai-club-website-latest -p "8123:80" uvicaiclub/ai-club-website:latest
+```
 
-A prompt may appear in the bottom right to open the project in a container, click "Open in container".
+### Dev pipeline command for new builds
 
-Wait for the container to build and you're ready to go!
-
-#### Create Container in Docker Desktop
-
-Open up Docker Desktop and click on Dev Environments over on the left side of the screen.
-
-Then click on Create or Create New Environment
-
-Follow the prompts untill it asks for a Git Repository, input: `https://github.com/uvicaiclub/ai-club-website.git` and press continue.
-
-Wait for the Docker to automatically create the dev environment, then click continue.
-
-Click to open in VS Code and the development server should be ready to go!
-
-### Local Image
-
-A Docker image for the repository can be created and run locally with the following pipeline command:
-
-`docker image rm -f ai-club-website ; docker build . -t ai-club-website ; docker run -p 3030:3000 -d ai-club-website`
+sudo docker stop ai-club-website-latest ; sudo docker container rm ai-club-website-latest ; sudo docker pull uvicaiclub/ai-club-website:latest ; sudo docker run -it -d --restart unless-stopped --name ai-club-website-latest -p "8123:80" uvicaiclub/ai-club-website:latest
 
 ## Web Analytics
 
