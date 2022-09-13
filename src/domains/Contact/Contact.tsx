@@ -3,12 +3,12 @@ const Contact = () => {
     <div>
       <div className="h3 pt-2">Weekly Meetings:</div>
       <p>
-        Club meetings are every Tuesday at 6:00pm in ECS 128 or 130 on campus.
+        Club meetings are every Monday at 7:00pm, meeting location will be posted in Discord.
       </p>
       <div className="h3 pt-2">Discord:</div>
       <p>
         Join the official UVic AI Club Discord channel by clicking the link{' '}
-        <a href="https://discord.gg/Yg9mf2YTuc">here</a>.
+        <a href="https://discord.gg/yzwf3fGt">here</a>.
       </p>
       <div className="h3 pt-2">E-mail:</div>
       <p>
