@@ -26,16 +26,6 @@ const Projects = () => {
       </div>
 
       <div className="pt-2">
-        <div className="h2">Chatbot</div>
-        <p>
-          Our home made <a href="/chatbot">chatbot</a> is designed to add more
-          value to our website. Our model was inspired by the Russian chatbot{' '}
-          <a href="http://p-bot.ru/en/index.html">p-bot</a>. We are currently
-          developing the database to house and sort responses and behaviours.
-        </p>
-      </div>
-
-      <div className="pt-2">
         <div className="h2">Neurotech</div>
         <p>
           The UVic AI Club has been invited to work in collaboration with the
