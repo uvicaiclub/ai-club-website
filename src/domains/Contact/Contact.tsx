@@ -8,7 +8,7 @@ const Contact = () => {
       <div className="h3 pt-2">Discord:</div>
       <p>
         Join the official UVic AI Club Discord channel by clicking the link{' '}
-        <a href="https://discord.gg/yzwf3fGt">here</a>.
+        <a href="https://discord.gg/zbBNT8Spjf">here</a>.
       </p>
       <div className="h3 pt-2">E-mail:</div>
       <p>
