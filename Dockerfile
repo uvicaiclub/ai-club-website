@@ -6,7 +6,7 @@ RUN npm install -g pnpm
 WORKDIR /app
 COPY . .
 
-RUN pnpm install
+RUN pnpm install --shamefully-hoist
 RUN pnpm build
 
 FROM nginx:stable-alpine
