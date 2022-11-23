@@ -1,4 +1,4 @@
-FROM node:14-alpine AS builder
+FROM node:18-alpine AS builder
 
 RUN apk update
 
@@ -12,7 +12,7 @@ RUN pnpm install --shamefully-hoist
 RUN pnpm run build
 
 
-FROM node:14-alpine
+FROM node:18-alpine
 
 WORKDIR /app
 RUN npm install -g serve
