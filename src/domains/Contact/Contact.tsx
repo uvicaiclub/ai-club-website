@@ -3,7 +3,7 @@ const Contact = () => {
     <div>
       <div className="h3 pt-2">Weekly Meetings:</div>
       <p>
-        Club meetings are every Monday at 7:00pm, meeting location will be posted in Discord.
+        Club meetings are every Tuesday at 6:00pm, meeting location will be posted in Discord.
       </p>
       <div className="h3 pt-2">Discord:</div>
       <p>
