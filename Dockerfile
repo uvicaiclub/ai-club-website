@@ -18,5 +18,5 @@ WORKDIR /app
 RUN npm install -g serve
 
 COPY --from=builder /app/build/ /app/build/
-CMD ["serve", "build --listen 80 --single --no-clipboard"]
+CMD ["serve", "build", "--listen", "80", "--single", "--no-clipboard"]
 EXPOSE 80
